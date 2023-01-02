@@ -34,5 +34,9 @@ public class Product { //базовый класс продукта
     public void setProductPrice(int productPrice) {
         this.productPrice = productPrice;
     }
+
+    public boolean matches (String search) { // определяет, подходит ли продукт запросу исходя из названия
+        return this.getProductName().contains(search);
+    }
 }
 

@@ -17,5 +17,11 @@ public class Book extends Product { //класс книг
 
     private String writer; //автор
 
-
+    public boolean matches(String search) {
+        if (super.matches(search)) { // вызов метода matches в версии описанной в Product
+            return true;
+        } else {
+            return this.getWriter().contains(search);
+        }
+    }
 }

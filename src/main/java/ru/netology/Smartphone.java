@@ -17,4 +17,12 @@ public class Smartphone extends Product { //класс смартфонов
 
     private String producer; //производитель
 
+    public boolean matches(String search) {
+        if (super.matches(search)) { // вызов метода matches в версии описанной в Product
+            return true;
+        } else {
+            return this.getProducer().contains(search);
+        }
+    }
+
 }

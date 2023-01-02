@@ -23,7 +23,7 @@ public class ProductManager { //мэнеджер продуктов
     public Product[] searchBy(String text) { //поиск продукта
         Product[] result = new Product[0];
         for (Product prod : repo.findAll()) {
-            if (matches(prod, text)) {
+            if (prod.matches(text)) {
                 Product[] tmp = new Product[result.length + 1];
                 for (int i = 0; i < result.length; i++) {
                     tmp[i] = result[i];

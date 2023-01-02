@@ -66,6 +66,48 @@ public class ProductManagerTest {
 
     }
 
+    @Test
+
+    public void shouldSearchByExistBook() { //тест поиска книги по автору
+        Product[] myProducts = {myProduct1, myBook1, myPhone1};
+        doReturn(myProducts).when(repo).findAll();
+        Product[] expected = {myBook1};
+        Product[] actual = manager.searchBy("Писатель");
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+
+    public void shouldSearchByExistSmart() { //тест поиска смартфона по производителю
+        Product[] myProducts = {myProduct1, myBook1, myPhone1};
+        doReturn(myProducts).when(repo).findAll();
+        Product[] expected = {myPhone1};
+        Product[] actual = manager.searchBy("Яблоко");
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldSearchByBook() { //тест поиска книги по названию
+        Product[] myProducts = {myProduct1, myBook1, myPhone1};
+        doReturn(myProducts).when(repo).findAll();
+        Product[] expected = {myBook1};
+        Product[] actual = manager.searchBy("Моя книга");
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldSearchBySmart() { //тест поиска смартфона по названию
+        Product[] myProducts = {myProduct1, myBook1, myPhone1};
+        doReturn(myProducts).when(repo).findAll();
+        Product[] expected = {myPhone1};
+        Product[] actual = manager.searchBy("Мой смартфон");
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
 
 
 }
